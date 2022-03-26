@@ -121,7 +121,6 @@
                 var checkColor = $(".color").val();
                 var checkSize = $(".size").val();
                 var checkAmount = $(".amount").val();
-                var qty;
                 var check = 1;
 
                 if (checkColor == "" || checkSize == "") {
@@ -129,20 +128,20 @@
                 } else {
                     $("#error").text("");
                     if (checkAmount == 1) {
-                        qty = 1;
-                        tong += qty;
+                        checkAmount = 1;
+                        tong += checkAmount;
                         $(".empty").text(tong);
                     } else if (checkAmount == 2) {
-                        qty = 2;
-                        tong += qty;
+                        checkAmount = 2;
+                        tong += checkAmount;
                         $(".empty").text(tong);
                     } else if (checkAmount == 3) {
-                        qty = 3;
-                        tong += qty;
+                        checkAmount = 3;
+                        tong += checkAmount;
                         $(".empty").text(tong);
                     } else if (checkAmount == 4) {
-                        qty = 4;
-                        tong += qty;
+                        checkAmount = 4;
+                        tong += checkAmount;
                         $(".empty").text(tong);
                     }
                 }
@@ -160,8 +159,8 @@
                 } else if (checkQty < checkAmount ) {
                     alert("Số lượng muốn xóa lớn hơn giỏ hàng");
                 } else {
-                    checkAmount -= checkAmount;
-                    $(".empty").text(checkAmount);
+                    checkQty = checkQty - checkAmount;
+                    $(".empty").text(checkQty);
                 }
 
                 return false
