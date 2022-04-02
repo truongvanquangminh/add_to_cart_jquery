@@ -121,7 +121,6 @@
                 var checkColor = $(".color").val();
                 var checkSize = $(".size").val();
                 var checkAmount = $(".amount").val();
-                var check = 1;
 
                 if (checkColor == "" || checkSize == "") {
                     $("#error").text("Vui lòng chọn color và size");
@@ -145,25 +144,19 @@
                         $(".empty").text(tong);
                     }
                 }
-
-                return false
             })
 
             $("#remove").click(function () {
-                var checkQty = $(".empty").val();
-                checkQty = tong;
                 checkAmount = $(".amount").val();
 
-                if (checkQty == 0) {
+                if (tong == 0) {
                     alert("Không có sản phẩm để xóa");
-                } else if (checkQty < checkAmount ) {
+                } else if (tong < checkAmount) {
                     alert("Số lượng muốn xóa lớn hơn giỏ hàng");
                 } else {
-                    checkQty = checkQty - checkAmount;
-                    $(".empty").text(checkQty);
+                    tong -= checkAmount;
+                    $(".empty").text(tong);
                 }
-
-                return false
             })
         })
     </script>
